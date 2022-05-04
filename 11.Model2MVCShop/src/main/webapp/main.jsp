@@ -36,10 +36,22 @@
      <!--  ///////////////////////// JavaScript ////////////////////////// -->
 	 
 	<script type="text/javascript">
+		/* function fncGetProduct() {
+			var prodNo = $(this).data("value");
+			var prodNo = $(this).attr("data-value",${product.prodNo});
+			console.log(prodNo);
+			$("form").attr("method","POST").attr("action","/product/getProduct?prodNo="+prodNo).submit;
+			self.location="/product/getProduct?prodNo="+prodNo;
+		} */
+		
 		$(function(){
-			
+			$("img").on("click",function(){
+				var prodNo = $(this).data("value");
+				self.location="/product/getProduct?prodNo="+prodNo;
+			});
 		});
 	</script>
+	
 	
 </head>
 	
@@ -59,7 +71,7 @@
     </div>
 
 	<!-- 참조 : http://getbootstrap.com/css/   : container part..... -->
-	<div class="container">
+<!-- 	<div class="container">
         <h3>나폴레옹은 이렇게 말했다.</h3>
         <p>"오늘 나의 불행은 언젠가 내가 잘못 보낸 시간의 보복이다."</p>
   	 	<h3>"... 장벽은 절실하게 원하지 않는 사람들을 걸러내려고 존재합니다. 장벽은. 당신이 아니라 '다른' 사람들을 멈추게 하려고 거기 있는 것이지요."</h3>
@@ -67,7 +79,7 @@
          <p>행복한 삶의 비결은.</p>
          <p>좋아하는 일을 하는 것이 아리라,</p>
          <p>지금 하는 일을 좋아하는 것입니다.</p>
-  	 </div>
+  	 </div> -->
 
 	<div class="container">
 		<div class="page-header">
@@ -84,13 +96,18 @@
 	        </ol>
 	        
 	        <div class="carousel-inner" role="listbox">
+	        
+	        <div class="item active">
+	            <img src="../images/uploadFiles/AHlbAAAAtDPSiQAA.jpg" alt="Second slide">
+	         </div>
 	          
-	          <div class="item active">
-	            <img src="../images/uploadFiles/AHlbAAAAtBqyWAAA.jpg" alt="First slide">
-	            <div>click</div>
-	            <input type="hidden" value="${product.prodNo}">
-	          </div>
-	          
+	          <c:forEach var="product" items="${list}">
+					<c:set var="i" value="${i+1}" />
+			          <div class="item">
+			            <img src="../images/uploadFiles/${product.fileName }" alt="first slide" data-value="${product.prodNo}" onClick ="fncGetProduct()">
+			          </div>	          
+	          </c:forEach>
+	          <!-- 
 	          <div class="item">
 	            <img src="../images/uploadFiles/AHlbAAAAtDPSiQAA.jpg" alt="Second slide">
 	          </div>
@@ -106,7 +123,14 @@
 	          <div class="item">
 	            <img src="../images/uploadFiles/AHlbAAAAve1WwgAC.jpg" alt="fifth slide">
 	          </div>
-	          s
+	          
+	          <div class="item">
+	            <img src="../images/uploadFiles/AHlbAAAAve37LwAD.jpg" alt="fifth slide">
+	          </div>
+	          
+	          <div class="item">
+	            <img src="../images/uploadFiles/AHlbAAAAvetFNwAA.jpg" alt="fifth slide">
+	          </div>-->
 	        </div>
 	        
 	        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">

@@ -231,9 +231,10 @@
 		    <img src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle" />
 		    </label>
 		    <div class="col-sm-10">
-		      <input type="text" class="form-control" id="manuDate" name="manuDate" placeholder="力炼老磊">
-		      &nbsp;<img src="../images/ct_icon_date.gif" width="15" height="15"
-				onclick="show_calendar('document.detailForm.manuDate', document.detailForm.manuDate.value)" />
+		      <input type="date" class="form-control" id="manuDate" name="manuDate" placeholder="力炼老磊">
+		      &nbsp;
+		      <!-- <img src="../images/ct_icon_date.gif" width="15" height="15"
+				onclick="show_calendar('document.detailForm.manuDate', document.detailForm.manuDate.value)" /> -->
 		    </div>
 		  </div>
 		  <div class="form-group">
