@@ -12,7 +12,7 @@
 	<!-- Bootstrap, jQuery CDN -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" >
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>  
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
 	
 	<!-- Bootstrap Dropdown Hover CSS -->
@@ -49,7 +49,7 @@
 			fncGetUserList(1);
 		});
 		
-		$(".ct_list_pop td:nth-child(3)").on("click",function(){
+		$(".ct_list_pop td:nth-child(5)").on("click",function(){
 			var prodNo = $(this).data("value");
 			if(${param.menu == 'manage'}){
 				self.location ="/product/updateProductView?prodNo="+prodNo;
@@ -60,13 +60,13 @@
 		
 
 		
-		$(".ct_list_pop td:nth-child(3)").css("color","red");
+		$(".ct_list_pop td:nth-child(5)").css("color","red");
 		
 		$(".ct_list_pop:nth-child(4n+6)").css("background-color","whitesmoke");
 	});
 	
   	$(function(){
-		$(".ct_list_pop td:nth-child(11) > i").on("click",function(){
+		$(".ct_list_pop td:nth-child(13) > i").on("click",function(){
 			 var prodNo = $(this).next().val();
 			/* var prodNo = $(this).data("value"); */
 			$.ajax({
@@ -148,6 +148,8 @@
 			
 			<thead>
 				<tr>
+					<td class="ct_list_b" width="100">상품이미지</td>
+					<td class="ct_line02"></td>
 					<th class="ct_list_b" width="100">No</th>
 					<th class="ct_line02"></th>
 					<th class="ct_list_b" width="150">상품명</th>
@@ -167,6 +169,8 @@
 				<c:forEach var="product" items="${list}">
 					<c:set var="i" value="${i+1}" />
 					<tr class="ct_list_pop">
+						<td align="left"><img src="../images/uploadFiles/${product.fileName}" width="100%" height="100%"></td>
+						<td></td>
 						<td align="center">${i}</td>
 						<td></td>
 						<td align="left" data-value="${product.prodNo}">
